@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    /* Evita rolagens desnecessárias */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    perspective: 1200px;
+    z-index: 10;
+}
+
+.folha-esquerda,
+.folha-direita {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: 1.5s ease-in-out;
+    backface-visibility: hidden;
+    background-color: #72cbc7;
+    z-index: 2;
+}
+
+.folha-esquerda {
+    right: 0;
+    transform-origin: right;
+    margin-left: -1px;
+    /* Ajuste para não vazar fundo */
+}
+
+.folha-direita {
+    left: 0;
+    transform-origin: left;
+    margin-right: -1px;
+    /* Ajuste para não vazar fundo */
+}
+
+.lacre {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.lacre img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Evita que a foto da Joly seja cortada nas laterais */
+}
+
+#abrir {
+    display: none;
+}
+
+/* ANIMAÇÃO */
+#abrir:checked~.container .folha-esquerda {
+    transform: rotateY(180deg);
+}
+
+#abrir:checked~.container .folha-direita {
+    transform: rotateY(-180deg);
+}
+
+#abrir:checked~.container .lacre {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.cartao {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    /* Fica atrás de tudo */
+}
+
+.cartao img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Isso garante que a imagem apareça inteira sem cortar nada */
+    background-color: #f7a8b8; /* Cor de fundo caso a foto não ocupe a tela toda */
+}
+@media (max-width: 600px) {
+    .container {
+        width: 100vw;
+        height: auto;
+        aspect-ratio: 9 / 16; /* Mantém a proporção de tela de celular */
+    }
+
+    .folha-esquerda, .folha-direita {
+        background-color: #72cbc7;
+    }
+}

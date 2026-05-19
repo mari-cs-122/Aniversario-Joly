@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>Cartão</title>
+</head>
+
+<body>
+    <audio id="musicaGatinhos" loop>
+        <source src="parabens.mp3" type="audio/mpeg">
+    </audio>
+    <input type="checkbox" id="abrir" onchange="controleMusica()">
+    <div class="container">
+        <div class="folha-direita"></div>
+        <div class="folha-esquerda"></div>
+        <label for="abrir" class="lacre">
+            <img src="fotos/joly.jpg" alt="lacre">
+        </label>
+    </div>
+    <div class="cartao">
+        <img src="fotos/joly2.jpg" alt="conteudo">
+    </div>
+    <script>
+        function controleMusica() {
+            var audio = document.getElementById("musicaGatinhos");
+            var checkbox = document.getElementById("abrir");
+
+            if (checkbox.checked) {
+                audio.play().catch(e => console.log("Erro: ", e));
+            } else {
+                audio.pause();
+                audio.currentTime = 0; // Reinicia a música se fechar
+            }
+        }
+    </script>
+</body>
+
+</html>
