@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Feliz aniversáriooo!!" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="home.css">
     <title>Cartão</title>
 </head>
 
 <body>
-    <audio id="musicaGatinhos" loop>
+    <audio id="musica" loop>
         <source src="parabens.mp3" type="audio/mpeg">
     </audio>
     <input type="checkbox" id="abrir" onchange="controleMusica()">
@@ -25,14 +25,14 @@
     </div>
     <script>
         function controleMusica() {
-            var audio = document.getElementById("musicaGatinhos");
+            var audio = document.getElementById("musica");
             var checkbox = document.getElementById("abrir");
 
             if (checkbox.checked) {
                 audio.play().catch(e => console.log("Erro: ", e));
             } else {
                 audio.pause();
-                audio.currentTime = 0; // Reinicia a música se fechar
+                audio.currentTime = 0;
             }
         }
     </script>

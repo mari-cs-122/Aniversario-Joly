@@ -6,7 +6,6 @@
 
 body {
     overflow: hidden;
-    /* Evita rolagens desnecessárias */
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -38,14 +37,12 @@ body {
     right: 0;
     transform-origin: right;
     margin-left: -1px;
-    /* Ajuste para não vazar fundo */
 }
 
 .folha-direita {
     left: 0;
     transform-origin: left;
     margin-right: -1px;
-    /* Ajuste para não vazar fundo */
 }
 
 .lacre {
@@ -61,14 +58,13 @@ body {
 .lacre img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Evita que a foto da Joly seja cortada nas laterais */
+    object-fit: contain;
 }
 
 #abrir {
     display: none;
 }
 
-/* ANIMAÇÃO */
 #abrir:checked~.container .folha-esquerda {
     transform: rotateY(180deg);
 }
@@ -89,20 +85,19 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: 1;
-    /* Fica atrás de tudo */
 }
 
 .cartao img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Isso garante que a imagem apareça inteira sem cortar nada */
-    background-color: #f7a8b8; /* Cor de fundo caso a foto não ocupe a tela toda */
+    object-fit: contain; 
+    background-color: #f8a7b6;
 }
 @media (max-width: 600px) {
     .container {
         width: 100vw;
         height: auto;
-        aspect-ratio: 9 / 16; /* Mantém a proporção de tela de celular */
+        aspect-ratio: 9 / 16;
     }
 
     .folha-esquerda, .folha-direita {
